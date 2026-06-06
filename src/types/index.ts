@@ -1,9 +1,10 @@
-export type UserRole = 'guest' | 'buyer' | 'seller' | 'admin' | 'moderator' | 'finance_manager';
+export type UserRole = 'guest' | 'buyer' | 'seller' | 'admin';
 
 export interface User {
   id: string;
   name: string;
   email: string;
+  password: string;
   phone?: string;
   avatar?: string;
   role: UserRole;
@@ -11,6 +12,7 @@ export interface User {
   bonusBalance: number;
   referralCode: string;
   createdAt: string;
+  isBlocked?: boolean;
 }
 
 export interface Category {
@@ -139,18 +141,9 @@ export interface Dispute {
   sellerId: string;
   reason: string;
   description: string;
-  status: 'open' | 'in_review' | 'resolved_buyer' | 'resolved_seller' | 'resolved_partial' | 'closed';
+  status: 'open' | 'in_review' | 'resolved_buyer' | 'resolved_seller' | 'closed';
   createdAt: string;
   resolvedAt?: string;
-}
-
-export interface ReferralReward {
-  id: string;
-  userId: string;
-  amount: number;
-  status: 'created' | 'pending_action' | 'pending_order' | 'antifrod' | 'confirmed' | 'paid' | 'rejected' | 'cancelled';
-  type: string;
-  createdAt: string;
 }
 
 export interface Message {
@@ -174,14 +167,4 @@ export interface PromoCode {
   usageCount: number;
   expiresAt: string;
   isActive: boolean;
-}
-
-export interface Payout {
-  id: string;
-  sellerId: string;
-  amount: number;
-  commission: number;
-  status: 'pending' | 'processing' | 'paid' | 'failed';
-  createdAt: string;
-  paidAt?: string;
 }
