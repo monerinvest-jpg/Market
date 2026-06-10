@@ -1,3 +1,5 @@
+**Основная инструкция здесь:**
+https://019eb097-2d53-7fe5-9293-2ddbd87d886f.arena.site/
 # HandMade Market — Backend API
 
 FastAPI + MySQL бэкенд для маркетплейса изделий ручной работы.
